@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>btn_back</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>btn_back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>btn_cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>btn_cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>btn_close</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>btn_close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>btn_copy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>btn_copy</shortDescription>
+        <value>Copy to Clipboard</value>
+    </labels>
+    <labels>
+        <fullName>btn_generate_snippet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>btn_generate_snippet</shortDescription>
+        <value>Generate Test Record Snippet</value>
+    </labels>
+    <labels>
+        <fullName>btn_select_fields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>btn_select_fields</shortDescription>
+        <value>Select fields</value>
+    </labels>
+    <labels>
+        <fullName>creatable_title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>creatable_title</shortDescription>
+        <value>Fields you can populate for a new record:</value>
+    </labels>
+    <labels>
+        <fullName>header_fields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header_fields</shortDescription>
+        <value>fields</value>
+    </labels>
+    <labels>
+        <fullName>header_selected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header_selected</shortDescription>
+        <value>Selected</value>
+    </labels>
+    <labels>
+        <fullName>header_title1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header_title1</shortDescription>
+        <value>Select fields depending on an action type:</value>
+    </labels>
+    <labels>
+        <fullName>header_title2</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header_title2</shortDescription>
+        <value>Test Code snippet</value>
+    </labels>
+    <labels>
+        <fullName>header_title3</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header_title3</shortDescription>
+        <value>Unit Tests Helper</value>
+    </labels>
+    <labels>
+        <fullName>header_title4</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header_title4</shortDescription>
+        <value>Unit tests best practices</value>
+    </labels>
+    <labels>
+        <fullName>help_adv1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>help_adv1</shortDescription>
+        <value>Do not use actual personal or sensitive data in unit tests</value>
+    </labels>
+    <labels>
+        <fullName>help_adv2</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>help_adv2</shortDescription>
+        <value>Prepare test data with @testSetup</value>
+    </labels>
+    <labels>
+        <fullName>help_adv3</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>help_adv3</shortDescription>
+        <value>Use Test.startTest() and Test.stopTest()</value>
+    </labels>
+    <labels>
+        <fullName>help_adv4</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>help_adv4</shortDescription>
+        <value>Combine similar and frequent test methods in a shared (aka TestUtils) class</value>
+    </labels>
+    <labels>
+        <fullName>help_adv5</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>help_adv5</shortDescription>
+        <value>Use collections (eg. Lists, Maps, Sets) to insert, update or delete records.</value>
+    </labels>
+    <labels>
+        <fullName>help_adv6</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>help_adv6</shortDescription>
+        <value>Reduce the amount of SOQL queries</value>
+    </labels>
+    <labels>
+        <fullName>link_blog</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>link_blog</shortDescription>
+        <value>https://www.celerte.com/post/salesforce-com-unit-test-best-practices</value>
+    </labels>
+    <labels>
+        <fullName>link_feedback</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>link_feedback</shortDescription>
+        <value>https://www.celerte.com/feedback</value>
+    </labels>
+    <labels>
+        <fullName>link_text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>link_text</shortDescription>
+        <value>Read in our blog.</value>
+    </labels>
+    <labels>
+        <fullName>link_text_1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>link_text_1</shortDescription>
+        <value>Please share your feedback!</value>
+    </labels>
+    <labels>
+        <fullName>link_text_pre</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>link_text_pre</shortDescription>
+        <value>Would like to know more?</value>
+    </labels>
+    <labels>
+        <fullName>link_text_pre_1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>link_text_pre_1</shortDescription>
+        <value>Have an idea of a new feature?</value>
+    </labels>
+    <labels>
+        <fullName>readable_title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>readable_title</shortDescription>
+        <value>Fields you can read:</value>
+    </labels>
+    <labels>
+        <fullName>spinner_loading</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>spinner_loading</shortDescription>
+        <value>Loading</value>
+    </labels>
+    <labels>
+        <fullName>updatable_title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>updatable_title</shortDescription>
+        <value>Fields you can change for a record update:</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,187 @@
+<!-- Unit Tests Helper -->
+<template>
+    <lightning-card title={label.header_title3} icon-name="standard:bot">
+        <div class="slds-m-around_medium">
+            <div class="slds-grid_vertical">
+                <div class="slds-col slds-m-top_small">
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="brand"
+                                          label={label.btn_select_fields}
+                                          title={label.btn_select_fields}
+                                          icon-name="utility:search"
+                                          onclick={handleSelectFields}
+                                          class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+
+    <template if:true={showFieldsPopup}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{objectInfo.data.label} {label.header_fields}</h2>
+                    <p class="slds-m-top_x-small">{label.header_title1}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <template if:true={showSpinner}>
+                        <lightning-spinner alternative-text={label.spinner_loading} size="small"></lightning-spinner>
+                    </template>
+
+                    <lightning-tabset>
+                        <lightning-tab label="CREATABLE" value="CREATABLE" title={label.creatable_title}
+                                       onactive={handleTabChange}>
+                            {label.creatable_title}
+                            <template if:true={showCreatableFields}>
+                                <lightning-datatable
+                                        key-field="apiName"
+                                        data={data}
+                                        columns={columns}>
+                                </lightning-datatable>
+                            </template>
+                        </lightning-tab>
+                        <lightning-tab label="UPDATABLE" title={updatable_title}
+                                       value="UPDATABLE"
+                                       onactive={handleTabChange}>
+                            {label.updatable_title}
+                            <template if:true={showUpdatableFields}>
+                                <lightning-datatable
+                                        key-field="apiName"
+                                        data={data}
+                                        columns={columns}>
+                                </lightning-datatable>
+                            </template>
+                        </lightning-tab>
+                        <lightning-tab label="READABLE" title={label.readable_title} value="READABLE"
+                                       onactive={handleTabChange}>
+                            {label.readable_title}
+                            <template if:true={showReadableFields}>
+                                <lightning-datatable
+                                        key-field="apiName"
+                                        data={data}
+                                        columns={columns}>
+                                </lightning-datatable>
+                            </template>
+                        </lightning-tab>
+                    </lightning-tabset>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label={label.btn_cancel} title={label.btn_cancel}
+                                      onclick={handleCloseSelectFieldsModal}
+                                      class="slds-m-right_small"
+                    ></lightning-button>
+                    <lightning-button variant="brand"
+                                      label={label.btn_generate_snippet}
+                                      title={label.btn_generate_snippet}
+                                      onclick={handleGenerateTestRecordSnippet}
+                    ></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <template if:true={showOutputSnippetPopup}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-02" class="slds-modal__title slds-hyphenate">{label.header_selected}&nbsp;{objectApiName}&nbsp;{label.header_fields}</h2>
+                    <p class="slds-m-top_x-small">{label.header_title2}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <div class="slds-box">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <div class="slds-clearfix">
+                                    <div class="slds-float_right">
+                                        <lightning-button-icon icon-name="utility:info_alt"
+                                                               variant="border-filled"
+                                                               onclick={handleShowHelpPopup}
+                                                               alternative-text="Info" title="Info">
+                                        </lightning-button-icon>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="slds-col">
+                                <pre><code>{snippetOutput}</code></pre>
+                            </div>
+                            <div class="slds-col">
+                                <div class="slds-clearfix">
+                                    <div class="slds-float_right">
+                                        <lightning-button variant="neutral"
+                                                          label={label.btn_copy}
+                                                          title={label.btn_copy}
+                                                          onclick={copyTo}
+                                                          icon-name="utility:copy_to_clipboard"
+                                                          icon-position="left"
+                                                          class="slds-m-right_small"></lightning-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral"
+                                      label={label.btn_back}
+                                      title={label.btn_back}
+                                      onclick={handleCloseOutputSnippetPopup}
+                                      class="slds-m-right_small"></lightning-button>
+                    <lightning-button variant="brand"
+                                      label={label.btn_close}
+                                      title={label.btn_close}
+                                      onclick={handleCloseAll}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <template if:true={showHelpPopup}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-03" class="slds-modal__title slds-hyphenate">{label.header_title4}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                    <ul>
+                        <li><span>{label.help_adv1}</span></li>
+                        <li><span>{label.help_adv2}</span></li>
+                        <li><span>{label.help_adv3}</span></li>
+                        <li><span>{label.help_adv4}</span></li>
+                        <li><span>{label.help_adv5}</span></li>
+                        <li><span>{label.help_adv6}</span></li>
+                    </ul>
+
+                    <div class="slds-align_absolute-center" style="height:2rem">
+                        {label.link_text_pre}&nbsp;<a href={label.link_blog}>{label.link_text}</a>
+                    </div>
+
+                    <div class="slds-align_absolute-center" style="height:2rem">
+                       {label.link_text_pre_1}&nbsp;<a href={label.link_feedback}>{label.link_text_1}</a>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral"
+                                      label={label.btn_back}
+                                      title={label.btn_back}
+                                      onclick={handleCloseHelpPopup}
+                                      class="slds-m-right_small"></lightning-button>
+                    <lightning-button variant="brand"
+                                      label={label.btn_close}
+                                      title={label.btn_close}
+                                      onclick={handleCloseAll}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+
+</template>
